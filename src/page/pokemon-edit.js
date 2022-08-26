@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PokemonForm from '../components/pokemon-form';
-import Pokemon from '../models/pokemon';
-import POKEMONS from '../models/mock-pokemon';
+import PokemonService from '../services/pokemon-service';
 
 const PokemonEdit = () => {
     const {id} = useParams()  
@@ -10,11 +9,13 @@ const PokemonEdit = () => {
 
   
   useEffect(() => {
-    POKEMONS.forEach(pokemon => {
-      if (id === pokemon.id.toString()) {
-        setPokemon(pokemon);
-      }
-    })
+    // POKEMONS.forEach(pokemon => {
+    //   if (id === pokemon.id.toString()) {
+    //     setPokemon(pokemon);
+    //   }
+    // })
+    fetch(`http://localhost:3004/pokemons/${id}`)
+    PokemonService.getPokemon(id).then(pokemon =>setPokemon(pokemon))
   }, [id]);
     
   return (

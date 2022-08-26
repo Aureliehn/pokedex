@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
-
+import PokemonService from "../services/pokemon-service";
 import PokemonCard from "../components/pokemon-card";
-import POKEMONS from "../models/mock-pokemon";
+// import POKEMONS from "../models/mock-pokemon";
 
 const PokemonList = ()=>{
     const[pokemons, setPokemons] = useState([]);
 
     useEffect(()=>{
-        setPokemons(POKEMONS)
+        // setPokemons(POKEMONS)
+        // fetch('http://localhost:3004/pokemons')
+        // .then(reponse => reponse.json())
+        // .then((pokemons)=>{
+        //     setPokemons(pokemons)
+        // })
+        PokemonService.getPokemons().then((pokemons) =>{setPokemons(pokemons)})
     }, []);
 
 
