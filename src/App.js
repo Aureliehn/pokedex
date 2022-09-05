@@ -4,6 +4,7 @@ import './App.css';
 import PokemonsDetail from './page/pokemon-detail';
 import PokemonList from './page/pokemon-list';
 import PokemonEdit from './page/pokemon-edit';
+import PokemonAdd from './page/pokemon-add';
 
 
 const App = () =>{
@@ -19,6 +20,7 @@ const App = () =>{
         <Routes>
           <Route path="/" element={<PokemonList></PokemonList>} />
           <Route path="/pokemons" element={<PokemonList></PokemonList>} />
+          <Route path='/pokemon/add' element={<PokemonAdd></PokemonAdd>}></Route>
           <Route path="/pokemons/:id" element={<PokemonsDetail/>} />
           <Route path="/pokemons/:id" element={<PokemonsDetail></PokemonsDetail>} />
           <Route path="pokemon/edit/:id" element={<PokemonEdit></PokemonEdit>} />
